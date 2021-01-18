@@ -17,7 +17,7 @@
     <header class="text-gray-600 body-font relative w-full h-16 flex justify-center z-50  ">
         <div class="fixed w-full bg-white shadow" x-data="{ isOpen : false }">
             <div class="container mx-auto flex flex-wrap py-5 flex-col md:flex-row md:items-center ">
-                <div class="flex justify-between w-full md:w-auto items-center">
+                <div class="flex justify-between w-full md:w-auto items-center cursor-pointer">
                     <a class="px-5 md:px-0 flex title-font font-medium items-center text-gray-900">
                         <img src="./img/logo.svg" alt="">
                         <span class="ml-3 text-2xl ">Foodyar</span>
@@ -58,7 +58,7 @@
                 <a href="#"
                     class="md:mr-5 text-myGray hover:text-myBlue hover:font-medium transition duration-100">Stories</a>
                 <button
-                    class="bg-myPink border-0 py-2 px-5 focus:outline-none hover:bg-gray-200 rounded-t-2xl rounded-b-md text-base font-medium text-myBlue mt-4 md:mt-0">
+                    class="bg-myPink border-0 py-2 px-5 focus:outline-none hover:bg-gray-200 rounded-t-3xl rounded-b-xl text-base font-semibold text-myBlue mt-4 md:mt-0">
                     My Kitchen
                 </button>
             </nav>
@@ -71,13 +71,13 @@
             <div
                 class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center ">
                 <h1
-                    class="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900 lg:leading-relaxed md:leading-normal">
+                    class="title-font lg:text-5xl sm:text-4xl text-3xl mb-4 font-bold text-gray-900 lg:leading-relaxed md:leading-normal">
                     Eat What You Cook With Us, Together!
                 </h1>
-                <p class="mb-8 leading-relaxed text-myGray">When you eat something that cooked by
+                <p class="mb-8 lg:text-xl leading-relaxed text-myGray">When you eat something that cooked by
                     yourself, the happiness is priceless.</p>
                 <button
-                    class="bg-myYellow border-0 py-2 px-5 focus:outline-none hover:bg-gray-200 rounded-t-2xl rounded-b-md text-base font-medium text-myBlue mt-4 md:mt-0">
+                    class="bg-myYellow border-0 py-3 px-8 focus:outline-none hover:bg-gray-200 rounded-t-3xl rounded-b-xl text-base font-semibold text-myBlue mt-4 md:mt-0">
                     Decide a Menu
                 </button>
             </div>
@@ -89,43 +89,87 @@
 
     <!-- * Menu Section -->
     <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-24 mx-auto"
+        x-data="{tab : 'healthy',
+            menus : [
+            {
+                food:'./img/pic.png',
+                title:'Avocado Muscle',
+                chef:'John Lennonk',
+                star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic2.png',
+                title:'Red Poppeye',
+                chef:'Toekang Sayoer',
+                star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic3.png',
+                title:'Naga Fruity Joss',
+                chef:'John Lennonk',
+                star:'./img/4-stars.svg',
+            },
+            {
+                food:'./img/pic4.png',
+                title:'Fried Bread',
+                chef:'Imelda Saranghae',
+                star:'./img/3-stars.svg',
+            },
+            ],
+            lunchs : [
+            {
+                food:'./img/pic3.png',
+                title:'Fried Noodles',
+                chef:'Madani Faqih',
+                star:'./img/4-stars.svg',
+            },
+            {
+                food:'./img/pic.png',
+                title:'Fried Rice',
+                chef:'Nisa Faizah',
+                star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic2.png',
+                title:'Fried Chicken',
+                chef:'Husna Laila',
+                star:'./img/4-stars.svg',
+            },
+            {
+                food:'./img/pic4.png',
+                title:'Beef Steak',
+                chef:'Imelda Anyoung',
+                star:'./img/5-stars.svg',
+            },
+            ]
+        }">
             <div class="text-center mb-10">
                 <h1 class="sm:text-2xl text-xl title-font text-myGray mb-4">Watch Now</h1>
-                <h1 class="sm:text-3xl text-2xl font-bold title-font mb-4">Special to Try</h1>
+                <h1 class="sm:text-4xl text-3xl font-bold title-font mb-4">Special to Try</h1>
             </div>
-            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6"
-            x-data="{
-                menus : [
-                {
-                    food:'./img/pic.png',
-                    title:'Avocado Muscle',
-                    chef:'John Lennonk',
-                    star:'./img/5-stars.svg',
-                },
-                {
-                    food:'./img/pic2.png',
-                    title:'Red Poppeye',
-                    chef:'Toekang Sayoer',
-                    star:'./img/5-stars.svg',
-                },
-                {
-                    food:'./img/pic3.png',
-                    title:'Naga Fruity Joss',
-                    chef:'John Lennonk',
-                    star:'./img/4-stars.svg',
-                },
-                {
-                    food:'./img/pic4.png',
-                    title:'Fried Bread',
-                    chef:'Imelda Saranghae',
-                    star:'./img/3-stars.svg',
-                },
-                ]
-            }">
+            <div class="flex justify-center items-center space-x-1 sm:space-x-10 mb-10">
+                <div @click.prevent="tab='healthy'" class=" flex flex-col cursor-pointer justify-center items-center">
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2 text-center" :class="{'text-myYellow':tab==='healthy'}">Healthy Food</h1>
+                    <div :class="{'bg-myYellow':tab === 'healthy'}" class=" rounded h-1 w-20 bg-none"></div>
+                </div>
+                <div @click.prevent="tab='lunch'" class=" flex flex-col cursor-pointer justify-center items-center">
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2" :class="{'text-myYellow':tab==='lunch'}">Lunch</h1>
+                    <div :class="{'bg-myYellow':tab === 'lunch'}" class=" rounded h-1 w-20 bg-none"></div>
+                </div>
+                <div @click.prevent="tab='desert'" class=" flex flex-col cursor-pointer justify-center items-center">
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2 text-center" :class="{'text-myYellow':tab==='desert'}">Vege Desert</h1>
+                    <div :class="{'bg-myYellow':tab === 'desert'}" class=" rounded h-1 w-20 bg-none"></div>
+                </div>
+                <div @click.prevent="tab='shake'" class=" flex flex-col cursor-pointer justify-center items-center">
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2" :class="{'text-myYellow':tab==='shake'}">Shake</h1>
+                    <div :class="{'bg-myYellow':tab === 'shake'}" class=" rounded h-1 w-20 bg-none"></div>
+                </div>
+            </div>
+            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
             <div class=" flex flex-col md:flex-row items-center justify-center mx-auto space-y-5">
                 <template x-for="menu in menus" :key="menu.title">
-                    <div class="p-4 md:w-1/4 flex flex-col text-center items-center">
+                    <div x-show="tab==='healthy'" class="p-4 md:w-1/4 flex flex-col text-center items-center">
                         <div>
                             <img :src="menu.food" alt="">
                         </div>
@@ -133,6 +177,18 @@
                             <h2 class="text-lg title-font font-medium" x-text="menu.title"></h2>
                             <p class="leading-relaxed text-sm text-myGray" x-text="menu.chef"></p>
                             <img :src="menu.star" alt="">
+                        </div>
+                    </div>
+                </template>
+                <template x-for="lunch in lunchs" :key="lunch.title">
+                    <div  x-show="tab==='lunch'"  class="p-4 md:w-1/4 flex flex-col text-center items-center">
+                        <div>
+                            <img :src="lunch.food" alt="">
+                        </div>
+                        <div class="flex-grow flex-col flex items-center justify-center space-y-2 mt-2">
+                            <h2 class="text-lg title-font font-medium" x-text="lunch.title"></h2>
+                            <p class="leading-relaxed text-sm text-myGray" x-text="lunch.chef"></p>
+                            <img :src="lunch.star" alt="">
                         </div>
                     </div>
                 </template>
