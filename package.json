@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "tailwindcss build ./src/styles.css -o ./public/styles.css",
     "build": "NODE_ENV=production tailwindcss build ./src/styles.css -o ./public/styles.css",
-    "deploy":"gh-pages -d public"
+    "deploy": "gh-pages -d public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage":"https://faqihmadani.github.io/foodyar-landing-page",
+  "homepage": "https://faqihmadani.github.io/foodyar-landing-page",
   "dependencies": {
     "alpinejs": "^2.8.0",
     "autoprefixer": "^10.2.1",
