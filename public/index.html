@@ -14,7 +14,8 @@
 </head>
 
 <body class=" font-quicksand text-myBlue">
-    <header class="text-gray-600 body-font relative w-full h-16 flex justify-center z-50  ">
+    <!-- * Navbar -->
+    <header class="body-font relative w-full h-16 flex justify-center z-50  ">
         <div class="fixed w-full bg-white shadow" x-data="{ isOpen : false }">
             <div class="container mx-auto flex flex-wrap py-5 flex-col md:flex-row md:items-center ">
                 <div class="flex justify-between w-full md:w-auto items-center cursor-pointer">
@@ -46,7 +47,7 @@
                     </button>
                 </nav>
             </div>
-            <nav class="md:hidden flex flex-col  flex-wrap items-center text-base justify-center space-y-2 border-t border-myBlue pt-3 pb-4 "
+            <nav class="md:hidden flex flex-col  flex-wrap items-center text-base justify-center space-y-2 border-t border-myBlue border-opacity-20 pt-3 pb-4 "
                 x-show="isOpen">
                 <a href="#" class="md:mr-5 font-medium hover:text-gray-900">Home</a>
                 <a href="#"
@@ -74,7 +75,7 @@
                     class="title-font lg:text-5xl sm:text-4xl text-3xl mb-4 font-bold text-gray-900 lg:leading-relaxed md:leading-normal">
                     Eat What You Cook With Us, Together!
                 </h1>
-                <p class="mb-8 lg:text-xl leading-relaxed text-myGray">When you eat something that cooked by
+                <p class="mb-8 lg:text-xl sm:text-lg leading-relaxed text-myGray">When you eat something that cooked by
                     yourself, the happiness is priceless.</p>
                 <button
                     class="bg-myYellow border-0 py-3 px-8 focus:outline-none hover:bg-gray-200 rounded-t-3xl rounded-b-xl text-base font-semibold text-myBlue mt-4 md:mt-0">
@@ -88,59 +89,110 @@
     </section>
 
     <!-- * Menu Section -->
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto"
-        x-data="{tab : 'healthy',
+    <section class="body-font">
+        <div class="container px-5 py-24 mx-auto" x-data="{tab : 'healthy',
             menus : [
             {
                 food:'./img/pic.png',
                 title:'Avocado Muscle',
-                chef:'John Lennonk',
+                chef:'Latisha Johannsen',
                 star:'./img/5-stars.svg',
             },
             {
                 food:'./img/pic2.png',
                 title:'Red Poppeye',
-                chef:'Toekang Sayoer',
+                chef:'Mila Klopfer',
                 star:'./img/5-stars.svg',
             },
             {
                 food:'./img/pic3.png',
-                title:'Naga Fruity Joss',
-                chef:'John Lennonk',
+                title:'Naga Fruity',
+                chef:'Dane Teter',
                 star:'./img/4-stars.svg',
             },
             {
                 food:'./img/pic4.png',
                 title:'Fried Bread',
-                chef:'Imelda Saranghae',
+                chef:'Lorette Jones',
                 star:'./img/3-stars.svg',
             },
             ],
             lunchs : [
             {
-                food:'./img/pic3.png',
+                food:'./img/pic5.png',
                 title:'Fried Noodles',
-                chef:'Madani Faqih',
-                star:'./img/4-stars.svg',
+                chef:'Lena Roseborough',
+                star:'./img/5-stars.svg',
             },
             {
-                food:'./img/pic.png',
+                food:'./img/pic6.png',
                 title:'Fried Rice',
-                chef:'Nisa Faizah',
-                star:'./img/5-stars.svg',
-            },
-            {
-                food:'./img/pic2.png',
-                title:'Fried Chicken',
-                chef:'Husna Laila',
+                chef:'Kirk Mcguigan',
                 star:'./img/4-stars.svg',
             },
             {
-                food:'./img/pic4.png',
+                food:'./img/pic7.png',
+                title:'Fried Chicken',
+                chef:'Donny Sluder',
+                star:'./img/4-stars.svg',
+            },
+            {
+                food:'./img/pic8.png',
                 title:'Beef Steak',
-                chef:'Imelda Anyoung',
+                chef:'Ardell Sung',
+                star:'./img/4-stars.svg',
+            },
+            ],
+            deserts : [
+            {
+                food:'./img/pic9.png',
+                title:'Green Salads',
+                chef:'Brandi Desrochers',
                 star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic10.png',
+                title:'Strawberry Red',
+                chef:'Starla Vossler',
+                star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic11.png',
+                title:'Multi Fruity',
+                chef:'Coralee Gillam',
+                star:'./img/4-stars.svg',
+            },
+            {
+                food:'./img/pic12.png',
+                title:'Avocado Freshty',
+                chef:'Tameka Heard',
+                star:'./img/4-stars.svg',
+            },
+            ],
+            shakes : [
+            {
+                food:'./img/pic13.png',
+                title:'Chocolate Shake',
+                chef:'Oswaldo Martell',
+                star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic14.png',
+                title:'Bubble Gum',
+                chef:'Donte Sink',
+                star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic15.png',
+                title:'Taro Shake',
+                chef:'Jerrod Abdul',
+                star:'./img/5-stars.svg',
+            },
+            {
+                food:'./img/pic16.png',
+                title:'Avocado Shake',
+                chef:'Ruben Holleran',
+                star:'./img/4-stars.svg',
             },
             ]
         }">
@@ -150,52 +202,191 @@
             </div>
             <div class="flex justify-center items-center space-x-1 sm:space-x-10 mb-10">
                 <div @click.prevent="tab='healthy'" class=" flex flex-col cursor-pointer justify-center items-center">
-                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2 text-center" :class="{'text-myYellow':tab==='healthy'}">Healthy Food</h1>
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2 text-center"
+                        :class="{'text-myYellow':tab==='healthy'}">Healthy Food</h1>
                     <div :class="{'bg-myYellow':tab === 'healthy'}" class=" rounded h-1 w-20 bg-none"></div>
                 </div>
                 <div @click.prevent="tab='lunch'" class=" flex flex-col cursor-pointer justify-center items-center">
-                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2" :class="{'text-myYellow':tab==='lunch'}">Lunch</h1>
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2"
+                        :class="{'text-myYellow':tab==='lunch'}">Lunch</h1>
                     <div :class="{'bg-myYellow':tab === 'lunch'}" class=" rounded h-1 w-20 bg-none"></div>
                 </div>
                 <div @click.prevent="tab='desert'" class=" flex flex-col cursor-pointer justify-center items-center">
-                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2 text-center" :class="{'text-myYellow':tab==='desert'}">Vege Desert</h1>
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2 text-center"
+                        :class="{'text-myYellow':tab==='desert'}">Vege Desert</h1>
                     <div :class="{'bg-myYellow':tab === 'desert'}" class=" rounded h-1 w-20 bg-none"></div>
                 </div>
                 <div @click.prevent="tab='shake'" class=" flex flex-col cursor-pointer justify-center items-center">
-                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2" :class="{'text-myYellow':tab==='shake'}">Shake</h1>
+                    <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2"
+                        :class="{'text-myYellow':tab==='shake'}">Shake</h1>
                     <div :class="{'bg-myYellow':tab === 'shake'}" class=" rounded h-1 w-20 bg-none"></div>
                 </div>
             </div>
             <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div class=" flex flex-col md:flex-row items-center justify-center mx-auto space-y-5">
-                <template x-for="menu in menus" :key="menu.title">
-                    <div x-show="tab==='healthy'" class="p-4 md:w-1/4 flex flex-col text-center items-center">
-                        <div>
-                            <img :src="menu.food" alt="">
+                <div class=" flex flex-col md:flex-row items-center justify-center mx-auto space-y-5">
+                    <template x-for="menu in menus" :key="menu.title">
+                        <div x-show="tab==='healthy'" class="p-4 md:w-1/4 flex flex-col text-center items-center">
+                            <div>
+                                <img :src="menu.food" alt="">
+                            </div>
+                            <div class="flex-grow flex-col flex items-center justify-center space-y-2 mt-2">
+                                <h2 class="text-lg title-font font-medium" x-text="menu.title"></h2>
+                                <p class="leading-relaxed text-sm text-myGray" x-text="menu.chef"></p>
+                                <img :src="menu.star" alt="">
+                            </div>
                         </div>
-                        <div class="flex-grow flex-col flex items-center justify-center space-y-2 mt-2">
-                            <h2 class="text-lg title-font font-medium" x-text="menu.title"></h2>
-                            <p class="leading-relaxed text-sm text-myGray" x-text="menu.chef"></p>
-                            <img :src="menu.star" alt="">
+                    </template>
+                    <template x-for="lunch in lunchs" :key="lunch.title">
+                        <div x-show="tab==='lunch'" class="p-4 md:w-1/4 flex flex-col text-center items-center">
+                            <div>
+                                <img :src="lunch.food" alt="">
+                            </div>
+                            <div class="flex-grow flex-col flex items-center justify-center space-y-2 mt-2">
+                                <h2 class="text-lg title-font font-medium" x-text="lunch.title"></h2>
+                                <p class="leading-relaxed text-sm text-myGray" x-text="lunch.chef"></p>
+                                <img :src="lunch.star" alt="">
+                            </div>
                         </div>
+                    </template>
+                    <template x-for="desert in deserts" :key="desert.title">
+                        <div x-show="tab==='desert'" class="p-4 md:w-1/4 flex flex-col text-center items-center">
+                            <div>
+                                <img :src="desert.food" alt="">
+                            </div>
+                            <div class="flex-grow flex-col flex items-center justify-center space-y-2 mt-2">
+                                <h2 class="text-lg title-font font-medium" x-text="desert.title"></h2>
+                                <p class="leading-relaxed text-sm text-myGray" x-text="desert.chef"></p>
+                                <img :src="desert.star" alt="">
+                            </div>
+                        </div>
+                    </template>
+                    <template x-for="shake in shakes" :key="shake.title">
+                        <div x-show="tab==='shake'" class="p-4 md:w-1/4 flex flex-col text-center items-center">
+                            <div>
+                                <img :src="shake.food" alt="">
+                            </div>
+                            <div class="flex-grow flex-col flex items-center justify-center space-y-2 mt-2">
+                                <h2 class="text-lg title-font font-medium" x-text="shake.title"></h2>
+                                <p class="leading-relaxed text-sm text-myGray" x-text="shake.chef"></p>
+                                <img :src="shake.star" alt="">
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+    </section>
+
+    <!-- * Quote Section -->
+    <section class="body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center relative">
+                <img src="./img/quote.svg"
+                    class=" absolute transform scale-75 sm:scale-90 md:scale-95 -top-20 -left-10 sm:-left-20"
+                    alt="quote">
+                <p class="leading-relaxed transform z-10 text-2xl sm:text-3xl">Awalnya saya malu dengan mertua karena
+                    tidak bisa memasak, kini mereka lebih suka makan malam di rumah demi menyantap masakan yang saya
+                    buat sendiri</p>
+                <div class=" flex justify-center items-center space-x-3 mt-8">
+                    <img src="./img/avatar.png" class=" transform scale-90" alt="avatar">
+                    <div class=" text-left">
+                        <h2 class=" font-bold title-font tracking-wider text-xl">Camella Sarrah</h2>
+                        <p class="text-myGray">Vege Master</p>
                     </div>
-                </template>
-                <template x-for="lunch in lunchs" :key="lunch.title">
-                    <div  x-show="tab==='lunch'"  class="p-4 md:w-1/4 flex flex-col text-center items-center">
-                        <div>
-                            <img :src="lunch.food" alt="">
-                        </div>
-                        <div class="flex-grow flex-col flex items-center justify-center space-y-2 mt-2">
-                            <h2 class="text-lg title-font font-medium" x-text="lunch.title"></h2>
-                            <p class="leading-relaxed text-sm text-myGray" x-text="lunch.chef"></p>
-                            <img :src="lunch.star" alt="">
-                        </div>
-                    </div>
-                </template>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- * Download Section -->
+    <section class="body-font">
+        <div class="container mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
+            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                <img class="object-cover object-center mx-auto rounded transform scale-90 md:scale-100" alt="app"
+                    src="./img/app.png">
+            </div>
+            <div
+                class="lg:flex-grow md:w-1/2 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                <h1
+                    class="title-font lg:text-5xl sm:text-4xl text-3xl mb-4 font-bold text-gray-900 lg:leading-relaxed md:leading-normal">
+                    Download our app and join the contest
+                </h1>
+                <p class="mb-8 lg:text-xl sm:text-lg leading-relaxed text-myGray">In order to improve our cooking
+                    skills,
+                    we do need a food photography </p>
+                <div class="flex flex-row space-x-5">
+                    <img class=" cursor-pointer" src="./img/google-play.svg" alt="google-play">
+                    <img class=" cursor-pointer" src="./img/app-store.svg" alt="app-store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- * Footer Section -->
+    <footer class="body-font border-t border-myBlue border-opacity-10">
+        <div class="container px-5 py-24 mx-auto flex md:items-center md:flex-row md:flex-nowrap flex-wrap flex-col">
+            <div class="w-64 flex-shrink-0 md:mx-auto mx-auto text-center md:flex md:items-center md:justify-center">
+                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <img src="./img/logo.svg" alt="">
+                    <span class="ml-3 text-xl font-bold">Foodyar</span>
+                </a>
+            </div>
+            <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center justify-between">
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-bold text-lg mb-3">Special Course</h2>
+                    <nav class="list-none mb-10 space-y-2">
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">Wedding Foods</a>
+                        </li>
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">Healthy and Muscle</a>
+                        </li>
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">Office Food Daily</a>
+                        </li>
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">Happy Kids</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-bold text-lg mb-3">Company</h2>
+                    <nav class="list-none mb-10 space-y-2">
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">APIs Developer</a>
+                        </li>
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">Career</a>
+                        </li>
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">Privacy Policy</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-bold text-lg mb-3">Be Our Friend</h2>
+                    <nav class="list-none mb-10 space-y-2">
+                        <li>
+                            <p class="text-myGray">3, Season Park, Jakarta</p>
+                        </li>
+                        <li>
+                            <a class="text-myGray hover:text-myBlue cursor-pointer hover:underline">support@foodyar.co.id</a>
+                        </li>  
+                        <li>
+                            <p class="text-myGray">021 - 1111 - 2222</p>
+                        </li> 
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                <p class="text-gray-500 text-sm text-center w-full">All Rights Reserved Foodyar by Pixel from BuildWith Angga 2020</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="./main.js"></script>
 </body>
