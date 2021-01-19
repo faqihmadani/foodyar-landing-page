@@ -200,7 +200,7 @@
                 <h1 class="sm:text-2xl text-xl title-font text-myGray mb-4">Watch Now</h1>
                 <h1 class="sm:text-4xl text-3xl font-bold title-font mb-4">Special to Try</h1>
             </div>
-            <div class="flex justify-center items-center space-x-1 sm:space-x-10 mb-10">
+            <div class="flex justify-center items-end space-x-1 sm:space-x-10 mb-10">
                 <div @click.prevent="tab='healthy'" class=" flex flex-col cursor-pointer justify-center items-center">
                     <h1 class="sm:text-2xl text-xl title-font text-myBlue mb-2 text-center"
                         :class="{'text-myYellow':tab==='healthy'}">Healthy Food</h1>
@@ -313,7 +313,7 @@
                 <p class="mb-8 lg:text-xl sm:text-lg leading-relaxed text-myGray">In order to improve our cooking
                     skills,
                     we do need a food photography </p>
-                <div class="flex flex-row space-x-5">
+                <div class="flex flex-row transform scale-75 md:scale-100 space-x-3 md:space-x-5 ">
                     <img class=" cursor-pointer" src="./img/google-play.svg" alt="google-play">
                     <img class=" cursor-pointer" src="./img/app-store.svg" alt="app-store">
                 </div>
